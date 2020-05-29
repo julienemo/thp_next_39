@@ -1,0 +1,104 @@
+@import "~bootstrap/scss/bootstrap";
+@import "./variables.scss";
+
+* {
+  color: $white;
+  body {
+    @include no_margin();
+    @include body_settings();
+    min-height: 100vh;
+    background-color: $background_gray;
+  }
+}
+
+a {
+  color: $white;
+  &:hover,
+  :focus {
+    @include no_decoration();
+    color: $white;
+  }
+}
+
+input,
+p {
+  text-align: justify;
+  @include paragraph_font_size();
+}
+
+.row {
+  @include limit_row_width();
+}
+
+.stick {
+  @include no_margin();
+  padding: 0px;
+}
+
+.stick_bottom {
+  margin: 2em 0px 0px 0px;
+  padding: 0px;
+}
+
+.title_font {
+  font-family: $title_font;
+}
+
+.red-bg {
+  background-color: $primary_red;
+}
+
+.btn_input {
+  @include title($white);
+  padding: 0.5em 1em;
+  border: none;
+  background-color: $primary_red;
+  opacity: 1;
+}
+
+.white_title {
+  @include title($white);
+}
+.red_title {
+  @include title($primary_red);
+}
+
+.flex_col_2 {
+  @include flex_col_2();
+}
+
+.flex_col_4 {
+  @include flex_col_4();
+}
+
+// internal link hover
+a.internal,
+a.internal:visited {
+  @include no_decoration();
+  position: relative;
+  color: $white;
+
+  &:after {
+    content: "";
+    height: 0.1em;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    background: $white;
+    transition: 0.2s;
+  }
+
+  &:hover:after {
+    width: 100%;
+  }
+
+  &.block {
+    display: block;
+    padding: 0.5em;
+
+    &:hover {
+      background: $white;
+    }
+  }
+}
